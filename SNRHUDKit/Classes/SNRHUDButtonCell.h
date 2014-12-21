@@ -11,6 +11,9 @@
 // TODO: Drawing images
 // TODO: Checkbox & radio buttons
 
+IB_DESIGNABLE
 @interface SNRHUDButtonCell : NSButtonCell
+
+@property (readwrite) IBInspectable BOOL drawsTextShadow;
 
 @end

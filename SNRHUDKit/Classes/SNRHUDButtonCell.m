@@ -184,11 +184,18 @@ static NSString* const SNRButtonReturnKeyEquivalent = @"\r";
 {
     BOOL blue = [self snr_shouldDrawBlueButton];
     NSString *label = [title string];
-    NSShadow *textShadow = [NSShadow new];
-    [textShadow setShadowOffset:blue ? SNRButtonBlueTextShadowOffset : SNRButtonBlackTextShadowOffset];
-    [textShadow setShadowColor:blue ? SNRButtonBlueTextShadowColor : SNRButtonBlackTextShadowColor];
-    [textShadow setShadowBlurRadius:blue ? SNRButtonBlueTextShadowBlurRadius : SNRButtonBlackTextShadowBlurRadius];
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:SNRButtonTextFont, NSFontAttributeName, SNRButtonTextColor, NSForegroundColorAttributeName, textShadow, NSShadowAttributeName, nil];
+    
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithObjectsAndKeys:SNRButtonTextFont, NSFontAttributeName, SNRButtonTextColor, NSForegroundColorAttributeName, nil];
+    
+    if (self.drawsTextShadow) {
+        NSShadow *textShadow = [NSShadow new];
+        [textShadow setShadowOffset:blue ? SNRButtonBlueTextShadowOffset : SNRButtonBlackTextShadowOffset];
+        [textShadow setShadowColor:blue ? SNRButtonBlueTextShadowColor : SNRButtonBlackTextShadowColor];
+        [textShadow setShadowBlurRadius:blue ? SNRButtonBlueTextShadowBlurRadius : SNRButtonBlackTextShadowBlurRadius];
+        
+        attributes[NSShadowAttributeName] = textShadow;
+    }
+    
     NSAttributedString *attrLabel = [[NSAttributedString alloc] initWithString:label attributes:attributes];
     NSSize labelSize = attrLabel.size;
     NSRect labelRect = NSMakeRect(NSMidX(frame) - (labelSize.width / 2.f), NSMidY(frame) - (labelSize.height / 2.f), labelSize.width, labelSize.height);
@@ -199,11 +206,18 @@ static NSString* const SNRButtonReturnKeyEquivalent = @"\r";
 - (NSRect)snr_drawCheckboxTitle:(NSAttributedString*)title withFrame:(NSRect)frame inView:(NSView*)controlView
 {
     NSString *label = [title string];
-    NSShadow *textShadow = [NSShadow new];
-    [textShadow setShadowOffset:SNRButtonBlackTextShadowOffset];
-    [textShadow setShadowColor:SNRButtonBlackTextShadowColor];
-    [textShadow setShadowBlurRadius:SNRButtonBlackTextShadowBlurRadius];
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:SNRButtonTextFont, NSFontAttributeName, SNRButtonTextColor, NSForegroundColorAttributeName, textShadow, NSShadowAttributeName, nil];
+    
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithObjectsAndKeys:SNRButtonTextFont, NSFontAttributeName, SNRButtonTextColor, NSForegroundColorAttributeName, nil];
+
+    if (self.drawsTextShadow) {
+        NSShadow *textShadow = [NSShadow new];
+        [textShadow setShadowOffset:SNRButtonBlackTextShadowOffset];
+        [textShadow setShadowColor:SNRButtonBlackTextShadowColor];
+        [textShadow setShadowBlurRadius:SNRButtonBlackTextShadowBlurRadius];
+        
+        attributes[NSShadowAttributeName] = textShadow;
+    }
+    
     NSAttributedString *attrLabel = [[NSAttributedString alloc] initWithString:label attributes:attributes];
     NSSize labelSize = attrLabel.size;
     NSRect labelRect = NSMakeRect(frame.origin.x + SNRButtonCheckboxTextOffset, NSMidY(frame) - (labelSize.height / 2.f), labelSize.width, labelSize.height);

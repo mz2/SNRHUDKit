@@ -18,7 +18,7 @@
 		039285BF14CCD40500D02672 /* SNRHUDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 039285BE14CCD40500D02672 /* SNRHUDAppDelegate.m */; };
 		039285C214CCD40500D02672 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039285C014CCD40500D02672 /* MainMenu.xib */; };
 		039285C614CCD42000D02672 /* SNRHUDKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0392857D14CCCBF300D02672 /* SNRHUDKit.framework */; };
-		039285CA14CCD43D00D02672 /* SNRHUDKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0392857D14CCCBF300D02672 /* SNRHUDKit.framework */; };
+		039285CA14CCD43D00D02672 /* SNRHUDKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0392857D14CCCBF300D02672 /* SNRHUDKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		039285CE14CCE82700D02672 /* NSBezierPath+MCAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 039285CC14CCE82700D02672 /* NSBezierPath+MCAdditions.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		039285CF14CCE82700D02672 /* NSBezierPath+MCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 039285CD14CCE82700D02672 /* NSBezierPath+MCAdditions.m */; };
 		039285D214CCF39B00D02672 /* SNRHUDWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 039285D014CCF39B00D02672 /* SNRHUDWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -283,7 +283,7 @@
 		0392857314CCCBF300D02672 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = indragie.com;
 			};
 			buildConfigurationList = 0392857614CCCBF300D02672 /* Build configuration list for PBXProject "SNRHUDKit" */;
@@ -410,6 +410,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -477,6 +478,7 @@
 				INFOPLIST_FILE = "SNRHUDKit/SNRHUDKit-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.indragie.SNRHUDKit.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -494,6 +496,7 @@
 				INFOPLIST_FILE = "SNRHUDKit/SNRHUDKit-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.indragie.SNRHUDKit.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -506,6 +509,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Catalog/Catalog-Prefix.pch";
 				INFOPLIST_FILE = "Catalog/Catalog-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.indragie.SNRHUDKit.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -518,6 +522,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Catalog/Catalog-Prefix.pch";
 				INFOPLIST_FILE = "Catalog/Catalog-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.indragie.SNRHUDKit.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
